@@ -3,7 +3,7 @@ Module Two Exercise: Object Methods
 Start with exercise-2.md if you haven't read it! 
 */
 
-//  DO NOT EDIT THE BELOW OBJECT // 
+//  DO NOT EDIT THE BELOW OBJECT //
 
 const papaJohns = {
   name: "Papa John's",
@@ -24,6 +24,49 @@ const papaJohns = {
   acceptsReservations: false,
 };
 
-// DO NOT EDIT THE ABOVE OBJECT // 
+// DO NOT EDIT THE ABOVE OBJECT //
 
-// YOUR WORK GOES HERE // 
+// YOUR WORK GOES HERE //
+
+function grabCategories(obj) {
+  console.log("Papa Johns Categories:", Object.keys(obj));
+  console.log("List of Pizza Toppings:", Object.keys(obj.pizzaToppings));
+}
+
+grabCategories(papaJohns);
+
+function verifyValues(obj, num) {
+  if (num == Object.values(obj).length) {
+    console.log(
+      `Number of values in Object (${obj.name}) equal to ${num}?`,
+      true
+    );
+  } else {
+    console.log(
+      `Number of values in Object (${obj.name}) equal to ${num}?`,
+      false
+    );
+  }
+}
+
+verifyValues(papaJohns, 9);
+verifyValues(papaJohns, 10);
+
+function getToppingsInfo(obj) {
+  console.log(Object.entries(obj.pizzaToppings));
+}
+
+getToppingsInfo(papaJohns);
+
+papaJohns.printAd = function (topping) {
+  console.log(
+    `Welcome to ${papaJohns.name}! We are located at ${papaJohns.address}. This week, we are having a sale on ${topping} for $${papaJohns.pizzaToppings[topping]}. ${papaJohns.slogan}`
+  );
+};
+
+papaJohns.printAd("bacon");
+
+papaJohns.address = "123 Park Way";
+papaJohns.slogan = "Our pizza is the best!";
+
+papaJohns.printAd("pepperoni");
